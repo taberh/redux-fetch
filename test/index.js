@@ -61,6 +61,12 @@ describe('redux-fetch middleware', () => {
     })
   })
 
+  describe('fetchMiddleware.then', () => {
+    it('fetchMiddleware.then return fetchMiddleware.then', () => {
+      assert.equal(fetchMiddleware.then(), fetchMiddleware.then)
+    })
+  })
+
   describe('fetch middleware', () => {
     const doDispatch = () => {}
     const doGetState = () => {}

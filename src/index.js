@@ -2,6 +2,7 @@
 
 import _ from 'lodash'
 
+/* istanbul ignore else */
 if (typeof fetch === 'undefined') {
   require('es6-promise').polyfill()
   require('isomorphic-fetch')

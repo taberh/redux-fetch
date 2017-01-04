@@ -1,0 +1,59 @@
+{
+  "name": "@taber/redux-fetch",
+  "version": "1.0.0",
+  "description": "Simple and elegant isomorophic fetch for Redux middleware",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir lib --source-maps",
+    "build:watch": "npm run build -- --watch",
+    "clean": "rimraf lib coverage",
+    "test": "standard --verbose | snazzy && npm run test:coverage",
+    "test:unit": "mocha --require babel-register test/",
+    "test:unit:watch": "npm run test:unit -- --watch",
+    "test:coverage": "babel-node ./node_modules/.bin/isparta cover _mocha -- --recursive test/",
+    "prepublish": "npm run clean && npm test && npm run build"
+  },
+  "keywords": [
+    "fetch",
+    "react",
+    "redux",
+    "react-middleware"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taberh/redux-fetch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/taberh/redux-fetch/issues"
+  },
+  "author": "taber huang <taber.huang@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "redux": "^3.6.0",
+    "rimraf": "^2.5.4",
+    "snazzy": "^5.0.0",
+    "standard": "^8.6.0"
+  },
+  "dependencies": {
+    "es6-promise": "^4.0.5",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4"
+  },
+  "standard": {
+    "ignore": [
+      "node_modules/*",
+      "lib/*"
+    ]
+  }
+}

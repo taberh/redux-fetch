@@ -2,7 +2,7 @@
 
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![Build Status](https://travis-ci.org/taberh/redux-fetch.svg?branch=master)](https://travis-ci.org/taberh/redux-fetch)
 
-Simple and elegant isomorophic fetch for Redux middleware. Not complex api, only like synchronous action.
+Simple and elegant isomorophic fetch for Redux middleware. Not complex api, just like writing a synchronization action.
 
 # Install
 ```
@@ -16,23 +16,26 @@ import Redux, {
   applyMiddleware,
   compose
 } from 'redux'
-import ReduxFetch, {
+import fetchMiddleware, {
   STATUS_REQUEST,
   STATUS_SUCCESS,
-  STATUS_FAILURE
+  STATUS_FAILURE,
+  configureOptions
 } from 'redux-fetch-elegant'
 
-// before
-ReduxFetch.before({
+// you can configure global default options
+configureOptions({
   credentials: 'same-origin',
   headers: {
     'xxx': 'xxx'
   }
 })
-ReduxFetch.then((response) => response.json())
+
+// and configure common logic
+fetchMiddleware.then((response) => response.json())
 
 const composeArray = [
-  applyMiddleware(ReduxFetch)
+  applyMiddleware(fetchMiddleware)
 ]
 const store = compose.apply(Redux, composeArray)(createStore)(reducer)
 

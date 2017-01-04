@@ -1,6 +1,6 @@
 {
   "name": "redux-fetch-elegant",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple and elegant isomorophic fetch for Redux middleware",
   "main": "./lib/index.js",
   "files": [

@@ -6,7 +6,7 @@ Simple and elegant isomorophic fetch for Redux middleware. Not complex api, only
 
 # Install
 ```
-npm install --save @taber/redux-fetch
+npm install --save redux-fetch-elegant
 ```
 
 # Example Usage
@@ -20,7 +20,7 @@ import ReduxFetch, {
   STATUS_REQUEST,
   STATUS_SUCCESS,
   STATUS_FAILURE
-} from '@taber/redux-fetch'
+} from 'redux-fetch-elegant'
 
 // before
 ReduxFetch.before({

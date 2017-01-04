@@ -1,5 +1,5 @@
 {
-  "name": "@taber/redux-fetch",
+  "name": "redux-fetch-elegant",
   "version": "1.0.0",
   "description": "Simple and elegant isomorophic fetch for Redux middleware",
   "main": "./lib/index.js",

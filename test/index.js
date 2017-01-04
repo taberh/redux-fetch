@@ -6,7 +6,7 @@ import fetchMiddleware, {
   STATUS_SUCCESS,
   STATUS_FAILURE,
   configureOptions
-} from '../lib/'
+} from '../src/'
 
 const assert = chai.assert
 

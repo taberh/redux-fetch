@@ -33,7 +33,6 @@
   "author": "taber huang <taber.huang@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-2": "^6.18.0",

@@ -47,36 +47,32 @@ export function configureOptions (options) {
  */
 function createReduxFetchMiddleware () {
   return ({ dispatch, getState }) => next => action => {
-    if (action && action.endpoint) {
-      dispatch(_.assign({}, action, {
-        status: STATUS_REQUEST
-      }))
+    if (!action || !action.endpoint) return next(action)
 
-      let queue = thenQueue.concat([[
-        (response) => {
-          dispatch(_.assign({}, action, {
-            status: STATUS_SUCCESS,
-            payload: response
-          }))
-        }
-      ]])
+    dispatch(_.assign({}, action, {
+      status: STATUS_REQUEST
+    }))
 
-      let response = fetch(action.endpoint, _.assign({}, defaultOptions, action))
-
-      _.forEach(queue, (item, i) => {
-        response = response.then.apply(response, item)
-      })
-
-      response.catch((error) => {
+    let queue = thenQueue.concat([[
+      (response) => {
         dispatch(_.assign({}, action, {
-          status: STATUS_FAILURE,
-          error
+          status: STATUS_SUCCESS,
+          payload: response
         }))
-      })
+      }
+    ]])
 
-      return
-    }
+    let response = fetch(action.endpoint, _.assign({}, defaultOptions, action))
 
-    return next(action)
+    _.forEach(queue, (item, i) => {
+      response = response.then.apply(response, item)
+    })
+
+    response.catch((error) => {
+      dispatch(_.assign({}, action, {
+        status: STATUS_FAILURE,
+        error
+      }))
+    })
   }
 }

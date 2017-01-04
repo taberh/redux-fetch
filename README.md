@@ -1,6 +1,6 @@
 # redux-fetch
 
-[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) [![Build Status](https://travis-ci.org/taberh/redux-fetch.svg?branch=master)](https://travis-ci.org/taberh/redux-fetch)
 
 Simple and elegant isomorophic fetch for Redux middleware. Not complex api, only like synchronous action.
 

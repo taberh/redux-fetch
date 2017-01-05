@@ -48,7 +48,7 @@ export function configureOptions (options) {
  */
 function createReduxFetchMiddleware () {
   return ({ dispatch, getState }) => next => action => {
-    if (!action || !action.endpoint) return next(action)
+    if (!action || !action.endpoint || action.status) return next(action)
 
     dispatch(_.assign({}, action, {
       status: STATUS_REQUEST
